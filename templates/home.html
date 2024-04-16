@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text/Doc Classification App</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Text/Doc Classification App</h1>
+        <div class="card">
+            <form method="post" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    <label for="file">Upload File Here:</label>
+                    <p>(Supported file types: <strong>.doc</strong> and <strong>.pdf)</strong></p>
+                    {{ form.file(class="form-control") }}
+                    <p class="or">OR</p>
+                </div>
+                <div class="form-group">
+                    <label for="text">Enter Text:</label>
+                    {{ form.text(class="form-control", style="height: 150px;") }}
+                </div>
+                <button type="submit" class="btn">Predict</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
